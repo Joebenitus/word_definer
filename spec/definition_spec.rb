@@ -54,4 +54,13 @@ describe('#Definition') do
       expect(Definition.find(def1.id)).to(eq(def1))
     end
   end
+
+  describe('#update') do
+    it('updates a definition') do
+      def1 = Definition.new({:body => 'Apple', :word_id => nil, :id => nil})
+      def1.save()
+      def1.update('Pear')
+      expect(def1.body).to(eq('Pear'))
+    end
+  end
 end
