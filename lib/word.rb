@@ -1,11 +1,12 @@
 class Word
-  attr_reader :name, :id
+  attr_reader :name, :id, :definition
 
   @@words = {}
   @@total_rows = 0
 
   def initialize(attributes)
     @name = attributes.fetch(:name)
+    @definition = attributes.fetch(:definition)
     @id = attributes.fetch(:id) || @@total_rows += 1
   end
 
@@ -22,7 +23,7 @@ class Word
   end
 
   def save
-    @@words[self.id] = Word.new({:name => self.name, :id => self.id})
+    @@words[self.id] = Word.new({:name => self.name, :id => self.id, :definition => self.definition})
   end
 
   def ==(word_to_compare)

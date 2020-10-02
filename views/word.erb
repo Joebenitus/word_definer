@@ -1,0 +1,21 @@
+<h1>Definitions for <%= @word.name %>!</h1>
+
+<h3>Definitions:</h3>
+<% if @definition.any? %>
+  <ul>
+    <% @definition.each do |word|%>
+      <li><a href="/words/<%= word.id %>"><%= word.name %></a></li>
+  <% end %>
+<% else %>
+  <p>There are no word definitions to display</p>
+<% end %>
+
+<a href="/words/<%= @word.id %>/def_new">Add a new definition</a>
+
+<form action="/words/<%= @word.id %>/" method="post">
+  <div class="form-group">
+    <label for="song_name">Song name</label>
+    <input id="song_name" name="song_name" class="form-control" type="text">
+  </div>
+  <button type="submit" class="btn">Add song</button>
+</form>
