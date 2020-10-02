@@ -1,10 +1,10 @@
 <h1>Definitions for: <%= @word.name %>!</h1>
 
 <h3>Definitions:</h3>
-<% if @word.definition %>
+<% if @defs %>
   <ul>
-    <% @word.definition.each do |word|%>
-      <li><a href="/words/<%= word.id %>"><%= word.name %></a></li>
+    <% @defs.each do |definition|%>
+      <li><a href="/words/<%= @word.id %>"><%= definition.body %></a></li>
   <% end %>
 <% else %>
   <p>There are no word definitions to display</p>
@@ -12,7 +12,7 @@
 
 <p><a href="/words/<%= @word.id %>/edit">Edit word</a></p>
 
-<form action="/words/<%= @word.id %>/" method="post">
+<form action="/words/<%= @word.id %>/defs" method="post">
   <div class="form-group">
     <label for="definition">Definition</label>
     <input id="definition" name="definition" class="form-control" type="text">

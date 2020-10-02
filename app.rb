@@ -45,6 +45,15 @@ post('/words/:id') do
   erb(:words)
 end
 
+post('/words/:id/defs') do
+  @word = Word.find(params[:id].to_i())
+  body = params[:definition]
+  definition = Definition.new({:body => body, :word_id => @word.id, :id => nil})
+  definition.save()
+  @defs = Definition.all
+  erb(:word)
+end
+
 patch('/words/:id') do
   @word = Word.find(params[:id].to_i())
   @word.update(params[:name])
