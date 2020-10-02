@@ -12,4 +12,7 @@ class Word
   def self.all
     @@words.values()
   end
+
+  def save
+  end
 end
