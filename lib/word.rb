@@ -28,4 +28,8 @@ class Word
   def ==(word_to_compare)
     self.name == word_to_compare.name
   end
+
+  def update(name)
+    @name = name
+  end
 end
