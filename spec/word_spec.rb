@@ -25,4 +25,13 @@ describe('#Word') do
       expect(word1==word2).to(eq(true))
     end
   end
+
+  describe('.clear') do
+    it('removes all words in the @@words class variable') do
+      word = Word.new({:name => 'Apple', :id => nil})
+      word.save()
+      Word.clear()
+      expect(Word.all).to(eq([]))
+    end
+  end
 end
