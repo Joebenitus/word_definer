@@ -16,26 +16,26 @@ class Definition
   end
 
   def self.clear
-    @@words = {}
+    @@definitions = {}
   end
 
   def self.find(id)
-    @@words[id]
+    @@definitions[id]
   end
 
   def save
-    @@words[self.id] = Word.new({:name => self.name, :id => self.id, :definition => self.definition})
+    @@definitions[self.id] = Definition.new({:body => self.body, :word_id => self.word_id, :id => self.id})
   end
 
-  def ==(word_to_compare)
-    self.name == word_to_compare.name
+  def ==(def_to_compare)
+    self.body == def_to_compare.body
   end
 
-  def update(name)
-    @name = name
+  def update(body)
+    @body = body
   end
 
   def delete
-    @@words.delete(self.id)
+    @@definitions.delete(self.id)
   end
 end
