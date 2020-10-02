@@ -14,6 +14,7 @@ class Word
   end
 
   def self.clear
+    @@words = {}
   end
 
   def save
