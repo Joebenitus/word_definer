@@ -9,7 +9,7 @@ describe('#Definition') do
     Definition.clear
     Word.clear
   end
-  
+
   describe('.all') do
     it('returns an empty array if there are no definitions') do
       expect(Definition.all).to(eq([]))
@@ -42,6 +42,16 @@ describe('#Definition') do
       def2.save()
       Definition.clear()
       expect(Definition.all).to(eq([]))
+    end
+  end
+
+  describe('.find') do
+    it('finds a definition by id') do
+      def1 = Definition.new({:body => 'Apple', :word_id => nil, :id => nil})
+      def1.save()
+      def2 = Definition.new({:body => 'Orange', :word_id => nil, :id => nil})
+      def2.save()
+      expect(Definition.find(def1.id)).to(eq(def1))
     end
   end
 end
