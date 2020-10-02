@@ -28,7 +28,7 @@ class Definition
   end
 
   def ==(def_to_compare)
-    self.body == def_to_compare.body
+    (self.body == def_to_compare.body) && (self.word_id == def_to_compare.word_id)
   end
 
   def update(body)

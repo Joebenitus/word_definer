@@ -17,4 +17,14 @@ describe('#Definition') do
       expect(Definition.all).to(eq([definition]))
     end
   end
+
+  describe('#==') do
+    it('checks if two definition objects are equal') do
+      def1 = Definition.new({:body => 'An orange fruit', :word_id => 5, :id => 1})
+      def1.save()
+      def2 = Definition.new({:body => 'An orange fruit', :word_id => 5, :id => 1})
+      def2.save()
+      expect(def1==def2).to(eq(true))
+    end
+  end
 end
