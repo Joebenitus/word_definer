@@ -29,6 +29,11 @@ get('/words/:id/edit') do
   erb(:edit_word)
 end
 
+get('/words/:id/defs/:def_id') do
+  @def = Definition.find(params[:id].to_i())
+  erb(:definition)
+end
+
 post('/words') do
   word = params[:word]
   word_obj = Word.new({:name => word, :id => nil, :definition => nil})
@@ -61,9 +66,23 @@ patch('/words/:id') do
   erb(:words)
 end
 
+patch('/words/:id/defs/:def_id') do
+  @defs = Word.find(params[:id].to_i())
+  definition = Definition.find(params[:def_id].to_i())
+  definition.update(params[:name])
+  erb(:word)
+end
+
 delete('/words/:id') do
   @word = Word.find(params[:id].to_i())
   @word.delete()
   @words = Word.all
   erb(:words)
+end
+
+delete('/words/:id/defs/def_id') do
+  @word = Word.find(params[:id].to_i())
+  @word.delete()
+  @words = Word.all
+  erb(:word)
 end

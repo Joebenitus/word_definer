@@ -4,7 +4,7 @@
 <% if @defs %>
   <ul>
     <% @defs.each do |definition|%>
-      <li><a href="/words/<%= @word.id %>"><%= definition.body %></a></li>
+      <li><a href="/words/<%= @word.id %>/defs/<%= definition.id %>"><%= definition.body %></a></li>
   <% end %>
 <% else %>
   <p>There are no word definitions to display</p>
