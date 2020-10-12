@@ -75,4 +75,14 @@ describe('#Definition') do
       expect(Definition.find_by_word(word.id)).to(eq([definition]))
     end
   end
+
+  describe('#word') do
+    it('finds the word which a definition belongs to') do
+      word = Word.new({ :name => 'Apple', :id => nil, :definition => nil })
+      word.save
+      definition = Definition.new({ :body => 'A fruit', :word_id => word.id, :id => nil })
+      definition.save
+      expect(definition.word).to(eq(word))
+    end
+  end
 end
