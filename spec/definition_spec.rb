@@ -57,10 +57,22 @@ describe('#Definition') do
 
   describe('#update') do
     it('updates a definition') do
-      def1 = Definition.new({:body => 'Apple', :word_id => nil, :id => nil})
+      word1 = Word.new({ :name => 'Apple', :id => nil, :definition => nil })
+      word1.save()
+      def1 = Definition.new({:body => 'Apple', :word_id => word1.id, :id => nil})
       def1.save()
-      def1.update('Pear')
+      def1.update('Pear', 5)
       expect(def1.body).to(eq('Pear'))
+    end
+  end
+
+  describe('.find_by_word') do
+    it('finds all definitions of a word') do
+      word = Word.new({ :name => 'Apple', :id => nil, :definition => nil })
+      word.save
+      definition = Definition.new({ :body => 'A type of fruit', :word_id => word.id, :id => nil })
+      definition.save
+      expect(Definition.find_by_word(word.id)).to(eq([definition]))
     end
   end
 end
