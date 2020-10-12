@@ -31,8 +31,10 @@ class Definition
     (self.body == def_to_compare.body) && (self.word_id == def_to_compare.word_id)
   end
 
-  def update(body)
-    @body = body
+  def update(body, word_id)
+    self.body = body
+    self.word_id = word_id
+    @@definitions[self.id] = Definition.new({ body: self.body, word_id: self.word_id, id: self.id })
   end
 
   def delete

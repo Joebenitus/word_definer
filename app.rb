@@ -67,9 +67,9 @@ patch('/words/:id') do
 end
 
 patch('/words/:id/defs/:def_id') do
-  @defs = Word.find(params[:id].to_i())
+  @word = Word.find(params[:id].to_i())
   definition = Definition.find(params[:def_id].to_i())
-  definition.update(params[:name])
+  definition.update(params[:name], params[:def_id])
   erb(:word)
 end
 
