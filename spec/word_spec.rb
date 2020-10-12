@@ -58,13 +58,13 @@ describe('#Word') do
     end
   end
 
-  # describe('#definitions') do
-  #   it('lists all the definitions of a word') do
-  #     word = Word.new({:name => 'Apple', :id => nil, :definition => nil})
-  #     word.save()
-  #     definition = Definition.new({ :body => 'A type of fruit', :word_id => word.id, :id => nil })
-  #     definition.save()
-  #     expect(word.definitions).to(eq([definition]))
-  #   end
-  # end
+  describe('#definitions') do
+    it('lists all the definitions of a word') do
+      word = Word.new({:name => 'Apple', :id => nil, :definition => nil})
+      word.save()
+      definition = Definition.new({ :body => 'A type of fruit', :word_id => word.id, :id => nil })
+      definition.save()
+      expect(word.definitions).to(eq([definition]))
+    end
+  end
 end
