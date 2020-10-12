@@ -1,9 +1,9 @@
 <h1>Definitions for: <%= @word.name %>!</h1>
 
 <h3>Definitions:</h3>
-<% if @defs %>
+<% if @word.definitions %>
   <ul>
-    <% @defs.each do |definition|%>
+    <% @word.definitions.each do |definition|%>
       <li><a href="/words/<%= @word.id %>/defs/<%= definition.id %>"><%= definition.body %></a></li>
   <% end %>
 <% else %>

@@ -30,7 +30,7 @@ get('/words/:id/edit') do
 end
 
 get('/words/:id/defs/:def_id') do
-  @def = Definition.find(params[:id].to_i())
+  @def = Definition.find(params[:def_id].to_i())
   erb(:definition)
 end
 
@@ -55,7 +55,7 @@ post('/words/:id/defs') do
   body = params[:definition]
   definition = Definition.new({:body => body, :word_id => @word.id, :id => nil})
   definition.save()
-  @defs = Definition.all
+  #@defs = Definition.all
   erb(:word)
 end
 
@@ -81,8 +81,9 @@ delete('/words/:id') do
 end
 
 delete('/words/:id/defs/def_id') do
-  @word = Word.find(params[:id].to_i())
-  @word.delete()
-  @words = Word.all
+  @definition = Word.find(params[:def_id].to_i())
+  @definition.delete()
+  
+  #@def = Word.all
   erb(:word)
 end
