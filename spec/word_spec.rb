@@ -67,4 +67,15 @@ describe('#Word') do
       expect(word.definitions).to(eq([definition]))
     end
   end
+
+  describe('#delete') do
+    it('deletes a definition') do
+      word = Word.new({:name => 'Apple', :id => nil, :definition => nil})
+      word.save()
+      definition = Definition.new({ :body => 'A type of fruit', :word_id => word.id, :id => nil })
+      definition.save()
+      definition.delete
+      expect(word.definitions).to(eq([]))
+    end
+  end
 end
