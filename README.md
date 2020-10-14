@@ -1,4 +1,4 @@
-# _Word Definer
+# _Word Definer_
 
 #### _A program written in Ruby which allows the user to add multiple words and multiple definitions for each word including CRUD functionality_
 
@@ -21,8 +21,7 @@ Heroku link: https://sleepy-river-59134.herokuapp.com/
 
 ## Known Bugs
 
-_Sinatra throwing an error when editing definitions._
-_List of definitions only appearing when adding a new definition_
+There are no known bugs at this time.
 
 ## Support and contact details
 
