@@ -85,4 +85,13 @@ describe('#Definition') do
       expect(definition.word).to(eq(word))
     end
   end
+
+  describe('#delete') do
+    it('deletes a word') do
+      word = Word.new({:name => 'Apple', :id => nil, :definition => nil})
+      word.save()
+      word.delete
+      expect(Word.all).to(eq([]))
+    end
+  end
 end
